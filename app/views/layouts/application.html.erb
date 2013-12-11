@@ -2,13 +2,42 @@
 <html>
 <head>
   <title>Mistalks</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
+  <link href='http://fonts.googleapis.com/css?family=Oxygen&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top navy" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">mis.talks</a>
+      </div>
+      <div class="navbar-collapse collapse navy-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">.talks</a></li>
+          <li><a href="#about">.about</a></li>
+          <li><a href="#contact">.contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

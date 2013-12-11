@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="post">
+  <div>
+    <small class='badge title-date'><%= @post.humanize_date%></small><h1># <%= @post.title %></h1>
+  </div>
+  <hr />
+  <p><%= @post.value %></p>
+  <!-- <p><a class="btn btn-lg btn-primary" href="../../components/#navbar">View navbar docs &raquo;</a></p> -->
+</div>
+
+  <strong>User:</strong>
+  <%= @post.user %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
