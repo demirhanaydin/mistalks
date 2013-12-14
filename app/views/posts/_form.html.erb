@@ -12,18 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <!-- <%= f.label :title %><br> -->
+    <%= f.text_field :title, placeholder: 'Title', class: "form-control" %> <br>
   </div>
   <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_area :value %>
+    <%= f.text_area :value, placeholder: 'Your post', class: "form-control", id: 'editor' %>
   </div>
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
-  </div>
+  </div> -->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: "btn btn-default btn-block btn-lg" %>
   </div>
 <% end %>
+
+<script>
+  var editor = new Editor();
+  editor.render();
+</script>

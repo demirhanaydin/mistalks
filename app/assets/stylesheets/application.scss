@@ -10,5 +10,44 @@
  *
  *= require bootstrap
  *= require_self
+ *= require editor
  *= require_tree .
  */
+
+ body {
+  // min-height: 2000px;
+  padding-top: 70px;
+  font-family: 'Oxygen';
+}
+
+.container {
+  max-width: 730px;
+  position: relative;
+}
+
+.navbar {
+  /*line-height: 70px;*/
+}
+
+.navbar-default {
+  background-color: #ffffff;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.navy-collapse {
+  font-size: 20px;
+}
+
+.navbar-brand, .navy-collapse {
+  
+  /*line-height: 40px;*/
+}
+
+.navy {
+  border-bottom: 2px solid #dddddd;
+  /*min-height: 70px;*/
+  /*line-height: 70px;*/
+}

@@ -1,0 +1,12 @@
+<div class="post">
+  <div class="title">
+    <small class='badge title-date'><%= post.humanize_date%></small>
+    <h1>
+      <%= link_to(post_path(post), html_options = {}) do
+        "# #{post.title}"
+      end %>
+    </h1>
+  </div>
+  <hr />
+  <%=raw markdown post.value %>
+</div>
