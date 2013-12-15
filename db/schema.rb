@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211222806) do
+ActiveRecord::Schema.define(version: 20131215002736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,18 @@ ActiveRecord::Schema.define(version: 20131211222806) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "firstname",  default: "", null: false
-    t.string   "lastname",   default: "", null: false
-    t.string   "email",      default: "", null: false
+    t.string   "firstname",                      default: "", null: false
+    t.string   "lastname",                       default: "", null: false
+    t.string   "email",                          default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encrypted_password", limit: 128
+    t.string   "confirmation_token", limit: 128
+    t.string   "remember_token",     limit: 128
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["firstname", "lastname", "email"], name: "index_users_on_firstname_and_lastname_and_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

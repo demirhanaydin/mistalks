@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize, except: [:index, :show]
 
   # GET /posts
   # GET /posts.json
@@ -19,12 +20,17 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    unless current_user.posts.where(id: params[:id]).present?
+      respond_to do |format|
+        format.html { redirect_to posts_path, flash: {warning: 'Cant touch this post.'} }
+      end
+    end
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -69,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :value, :user_id)
+      params.require(:post).permit(:title, :value)
     end
 end

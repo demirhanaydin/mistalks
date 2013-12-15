@@ -35,10 +35,24 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
+  <!-- End Fixed navbar -->
 
+  <!-- begin container -->
   <div class="container">
+    <!-- flash notice -->
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+    <!-- End flash notice -->
+
     <%= yield %>
   </div>
+  <!-- end container -->
 
 </body>
 </html>

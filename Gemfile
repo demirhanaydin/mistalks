@@ -55,3 +55,6 @@ gem 'will_paginate', '~> 3.0'
 
 # will paginate bootstrap
 gem 'will_paginate-bootstrap'
+
+# user authentication
+gem 'clearance'
